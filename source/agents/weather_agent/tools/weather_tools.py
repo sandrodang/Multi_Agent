@@ -1,5 +1,6 @@
 import os
 import requests
+from config import Config
 
 def get_weather_info(city: str) -> dict:
     """
@@ -13,7 +14,7 @@ def get_weather_info(city: str) -> dict:
     if not api_key:
         return {"status": "error", "error_message": "OPENWEATHER_API_KEY not set."}
 
-    url = "https://api.openweathermap.org/data/2.5/weather"
+    url = Config.API_URL
     params = {"q": city, "appid": api_key, "units": "metric"}
     try:
         resp = requests.get(url, params=params, timeout=5)  # Requests HTTP lib :contentReference[oaicite:4]{index=4}

@@ -9,7 +9,6 @@ from source.utils.env_loader import load_env
 load_env()
 
 if __name__ == "__main__":
-    # ... load_env() etc.
 
     session_service = InMemorySessionService()
     session = session_service.create_session(
