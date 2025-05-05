@@ -2,7 +2,6 @@ from google.adk.agents import LlmAgent
 from source.agents.greeting_agent.agent import greeting_agent
 from source.agents.weather_agent.agent import weather_agent
 from source.agents.sql_agent.agent import create_sql_agent
-from config import Config
 
 # Tạo Router Agent đồng bộ với sub-agent SQL bất đồng bộ
 async def create_router_agent():
@@ -10,7 +9,7 @@ async def create_router_agent():
 
     router_agent = LlmAgent(
         name="RouterAgent",
-        model=Config.MODEL,
+        model="gemini-2.0-flash",
         description="Routes requests to GreetingAgent, WeatherAgent hoặc SQLAgent dựa trên nội dung.",
         instruction=(
             "If the user input is a greeting (hello, hi, good morning/afternoon/evening), "
